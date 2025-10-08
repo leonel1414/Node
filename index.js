@@ -9,7 +9,9 @@ console.log(message.toString());
 
 */
 
-//Modulo interno
+/**
+ * Modulo interno
+*/
 
 //esestructuración, para no requerrir todo el modulo completo
 
@@ -17,10 +19,30 @@ console.log(message.toString());
 //writeMessage.("Probando modulo interno con Node JS");
 
 
-const message = require("./message.js");
+//const message = require("./message.js");
 
-message.writeMessage("Probando modulo interno con Node JS");
+//message.writeMessage("Probando modulo interno con Node JS");
 
 
 //para leer
-message.readMessage("message.txt");
+//message.readMessage("message.txt");
+
+//para borrar
+//message.deleteMessage();
+
+
+
+/**
+ * MODULO DE TERCEROS
+ */
+
+const cowsay = require("cowsay");
+
+console.log(
+    cowsay.say({
+        text: "I'm a mooooodule",
+        e: "oO",
+        T: "U ",
+    })
+);
+
