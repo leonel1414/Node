@@ -1,1 +1,1 @@
-Probando modulo interno con Node JS
+Hola Node JS, __dirname

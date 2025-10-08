@@ -16,16 +16,17 @@ console.log(message.toString());
 //esestructuración, para no requerrir todo el modulo completo
 
 //const {writeMessage} = require("./message.js");
-//writeMessage.("Probando modulo interno con Node JS");
+//writeMessage("Probando modulo interno con Node JS");
 
 
-//const message = require("./message.js");
+const message = require("./message.js");
 
-//message.writeMessage("Probando modulo interno con Node JS");
+message.writeMessage("Hola Node JS, __dirname");
 
 
 //para leer
-//message.readMessage("message.txt");
+const messagee = message.readMessage();
+console.log(messagee)
 
 //para borrar
 //message.deleteMessage();
@@ -36,6 +37,7 @@ console.log(message.toString());
  * MODULO DE TERCEROS
  */
 
+/*
 const cowsay = require("cowsay");
 
 console.log(
@@ -45,4 +47,4 @@ console.log(
         T: "U ",
     })
 );
-
+*/
