@@ -11,6 +11,16 @@ console.log(message.toString());
 
 //Modulo interno
 
+//esestructuración, para no requerrir todo el modulo completo
+
+//const {writeMessage} = require("./message.js");
+//writeMessage.("Probando modulo interno con Node JS");
+
+
 const message = require("./message.js");
 
 message.writeMessage("Probando modulo interno con Node JS");
+
+
+//para leer
+message.readMessage("message.txt");
