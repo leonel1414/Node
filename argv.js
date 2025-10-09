@@ -1,9 +1,35 @@
 import { argv } from "process";
+import path from "path";
+import { fileURLToPath } from "url";
+import { readFile } from 'fs/promises';
 
-console.log(argv);
+//console.log(argv);
 
-const products = [];
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-if(argv[2] == 'read' && argv[3] == 'products'){
+const filePath = path.join(__dirname,"data", "products.json");
+
+
+let [, , command, resource] = argv;
+
+command = command.toLocaleLowerCase();
+resource = resource.toLocaleLowerCase();
+
+let products = [];
+
+try{
+
+    const jsonText = await readFile(filePath, 'utf-8');
+    products = JSON.parse(jsonText);
+
+} catch(error) {
+
+    console.log("Error al leer el archivo JSON:",error);
+}
+
+
+if(command == 'read' && resource == 'products'){
     console.log(products);
 }
+
