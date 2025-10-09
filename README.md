@@ -17,5 +17,5 @@ npm run start read products/3
 ## save
 
 ```shell
-npm run start save products "Producto Nuevo" 
+npm run start save products "Producto Nuevo" 5000
 ```
