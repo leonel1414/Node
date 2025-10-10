@@ -19,3 +19,10 @@ npm run start read products/3
 ```shell
 npm run start save products "Producto Nuevo" 5000
 ```
+
+
+## update
+
+```shell
+npm run start update products/3 "Producto Actualizado"
+```

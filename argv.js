@@ -47,5 +47,9 @@ if(command == 'read' && resource == 'products' && id){
     }else{
         console.log("No existe el producto");
     }
+}else {
+    if(command == 'read' && resource.startsWith('products')){
+        console.log(products);
+    }
 }
 
