@@ -11,13 +11,18 @@ const __dirname = path.dirname(__filename);
 const filePath = path.join(__dirname,"data", "products.json");
 
 
+const match = argv.find((arg) => /^products\/\d+$/.test(arg));
+const id = match ? match.split("/")[1] : null;
+
+
 let [, , command, resource] = argv;
 
-command = command.toLocaleLowerCase();
-resource = resource.toLocaleLowerCase();
+command = command.toLowerCase();
+resource = resource.toLowerCase();
 
 let products = [];
 
+console.log(command,resource,id);
 try{
 
     const jsonText = await readFile(filePath, 'utf-8');
