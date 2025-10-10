@@ -12,17 +12,22 @@ const filePath = path.join(__dirname,"data", "products.json");
 
 
 const match = argv.find((arg) => /^products\/\d+$/.test(arg));
-const id = match ? match.split("/")[1] : null;
-
+let id = match ? match.split("/")[1] : null;
+id = parseInt(id);
 
 let [, , command, resource] = argv;
 
 command = command.toLowerCase();
+
+if(id){
+    resource = resource.split("/")[0];
+}
 resource = resource.toLowerCase();
 
 let products = [];
 
 console.log(command,resource,id);
+
 try{
 
     const jsonText = await readFile(filePath, 'utf-8');
@@ -34,7 +39,13 @@ try{
 }
 
 
-if(command == 'read' && resource == 'products'){
-    console.log(products);
+if(command == 'read' && resource == 'products' && id){
+    const product = products.find(product => product.id == id);
+
+    if(product){
+        console.log(product);
+    }else{
+        console.log("No existe el producto");
+    }
 }
 
