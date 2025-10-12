@@ -24,5 +24,12 @@ npm run start save products "Producto Nuevo" 5000
 ## update
 
 ```shell
-npm run start update products/3 "Producto Actualizado"
+npm run start update products/3 "Producto Actualizado" 350
+```
+
+
+## delete
+
+```shell
+npm run start delete products/3
 ```
