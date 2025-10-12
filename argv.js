@@ -2,6 +2,7 @@ import { argv } from "process";
 import path from "path";
 import { fileURLToPath } from "url";
 import { readFile } from 'fs/promises';
+import { writeFile } from "fs";
 
 //console.log(argv);
 
@@ -47,9 +48,28 @@ if(command == 'read' && resource == 'products' && id){
     }else{
         console.log("No existe el producto");
     }
-}else {
-    if(command == 'read' && resource.startsWith('products')){
-        console.log(products);
+}else if(command == 'read' && resource.startsWith('products')){
+    console.log(products);
+}else if(command == 'read' && resource == 'products'){
+    const [name ,price] = argv.slice[4];
+
+    const params = {name,price};
+
+    const newProducts ={
+        id: products.length +1,
+        //name: name,
+        //price: price
+        ...params,
+    };
+    products.push(newProducts);
+
+    //console.log("Produco Nuevo :", newProducts);
+
+    try {
+        await writeFile(filePath, JSON.stringify(products));
+        console.log("Archivo actualizado correctamente");
+    } catch (error) {
+        console.error("Error al escribir el archivo:",error);
     }
 }
 
